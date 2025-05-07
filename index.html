@@ -153,54 +153,27 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
     
-    .css-slider {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-}
-
-.css-slider input {
-  display: none;
-}
-
-.slides {
-  display: flex;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.slide {
-  width: 100%;
-  flex-shrink: 0;
-  display: none;
-}
-
-#slide1:checked ~ .slides .img1,
-#slide2:checked ~ .slides .img2,
-#slide3:checked ~ .slides .img3 {
-  display: block;
-}
-
+/* Hide all arrows by default */
 .arrows {
+  display: none;
   position: absolute;
-  width: 100%;
-  top: 45%;
-  display: flex;
+  top: 50%;
+  left: 0;
+  right: 0;
   justify-content: space-between;
   padding: 0 10px;
+  transform: translateY(-50%);
   pointer-events: none;
 }
 
 .arrows label {
   font-size: 30px;
   color: #d46e91;
-  cursor: pointer;
-  pointer-events: all;
   background: white;
   border-radius: 50%;
-  padding: 6px 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  pointer-events: all;
   transition: transform 0.2s ease;
 }
 
@@ -208,12 +181,38 @@
   transform: scale(1.2);
 }
 
-/* Show arrows depending on which slide is checked */
-#slide1:checked ~ .arrows { display: flex; }
-#slide2:checked ~ .second { display: flex; }
-#slide3:checked ~ .third { display: flex; }
+/* Image visibility */
+.slide {
+  width: 100%;
+  display: none;
+}
 
-.second, .third { display: none; }
+#slide1:checked ~ .slides .img1,
+#slide2:checked ~ .slides .img2,
+#slide3:checked ~ .slides .img3,
+#slide4:checked ~ .slides .img4,
+#slide5:checked ~ .slides .img5,
+#slide6:checked ~ .slides .img6,
+#slide7:checked ~ .slides .img7 {
+  display: block;
+}
+
+/* Arrow visibility for each slide */
+#slide1:checked ~ .s1,
+#slide2:checked ~ .s2,
+#slide3:checked ~ .s3,
+#slide4:checked ~ .s4,
+#slide5:checked ~ .s5,
+#slide6:checked ~ .s6,
+#slide7:checked ~ .s7 {
+  display: flex;
+}
+
+.poster-section {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative; /* ✅ Add this line */
+}
 
 
   </style>
@@ -258,42 +257,65 @@
 </section>
 
 
-  <section>
-    <h2>project 2: best story ever</h2>
-    <div class="poster-section">
-      <section>
+<section>
   <h2>project 2: best story ever</h2>
-  <div class="poster-section">
-    <div class="css-slider">
-      <input type="radio" name="slide" id="slide1" checked>
-      <input type="radio" name="slide" id="slide2">
-      <input type="radio" name="slide" id="slide3">
+  <div class="poster-section css-slider">
+    <!-- 7 radio buttons -->
+    <input type="radio" name="slide" id="slide1" checked>
+    <input type="radio" name="slide" id="slide2">
+    <input type="radio" name="slide" id="slide3">
+    <input type="radio" name="slide" id="slide4">
+    <input type="radio" name="slide" id="slide5">
+    <input type="radio" name="slide" id="slide6">
+    <input type="radio" name="slide" id="slide7">
 
-      <div class="slides">
-        <img src="bse 1.png" class="slide img1">
-        <img src="bse 2.png" class="slide img2">
-        <img src="bse 3.png" class="slide img3">
-      </div>
+    <!-- 7 images -->
+    <div class="slides">
+      <img src="bse 1.png" class="slide img1" alt="Slide 1">
+      <img src="bse 2.png" class="slide img2" alt="Slide 2">
+      <img src="bse 3.png" class="slide img3" alt="Slide 3">
+      <img src="bse 4.png" class="slide img4" alt="Slide 4">
+      <img src="bse 5.png" class="slide img5" alt="Slide 5">
+      <img src="bse 6.png" class="slide img6" alt="Slide 6">
+      <img src="bse 7.png" class="slide img7" alt="Slide 7">
+    </div>
 
-      <div class="arrows">
-        <label for="slide3" class="prev">&#10094;</label>
-        <label for="slide2" class="next">&#10095;</label>
-      </div>
-
-      <div class="arrows second">
-        <label for="slide1" class="prev">&#10094;</label>
-        <label for="slide3" class="next">&#10095;</label>
-      </div>
-
-      <div class="arrows third">
-        <label for="slide2" class="prev">&#10094;</label>
-        <label for="slide1" class="next">&#10095;</label>
-      </div>
+    <!-- Arrows for each slide -->
+    <div class="arrows s1">
+      <label for="slide7" class="prev">&#10094;</label>
+      <label for="slide2" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s2">
+      <label for="slide1" class="prev">&#10094;</label>
+      <label for="slide3" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s3">
+      <label for="slide2" class="prev">&#10094;</label>
+      <label for="slide4" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s4">
+      <label for="slide3" class="prev">&#10094;</label>
+      <label for="slide5" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s5">
+      <label for="slide4" class="prev">&#10094;</label>
+      <label for="slide6" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s6">
+      <label for="slide5" class="prev">&#10094;</label>
+      <label for="slide7" class="next">&#10095;</label>
+    </div>
+    <div class="arrows s7">
+      <label for="slide6" class="prev">&#10094;</label>
+      <label for="slide1" class="next">&#10095;</label>
     </div>
 
     <p>A vibrant and energetic poster to advertise a student showcase night. The design emphasizes bold typography and dynamic composition.</p>
   </div>
 </section>
+
+
+
 
 
   <section>
