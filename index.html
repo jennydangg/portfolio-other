@@ -188,6 +188,14 @@
   width: 100%;
   display: none;
 }
+    
+    .slides {
+  display: flex;
+  justify-content: center;  /* ✅ center horizontally */
+  align-items: center;      /* ✅ center vertically if height varies */
+  height: auto;
+}
+
 
 #slide1:checked ~ .slides .img1,
 #slide2:checked ~ .slides .img2,
